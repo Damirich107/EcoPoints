@@ -4,5 +4,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('accounts/', include('accounts.urls')),
     path('', include('main.urls')),
 ]
+
+handler403 = 'config.views.custom_403'

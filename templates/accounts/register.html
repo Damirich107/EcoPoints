@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация — EcoPoints</title>
+</head>
+<body>
+    <h1>Регистрация в EcoPoints</h1>
+
+    <form method="post" id="registerForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <p>Уже есть аккаунт?
+        <a href="{% url 'login' %}">Войти</a>
+    </p>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            const password1 = document.getElementById('id_password1').value;
+            const password2 = document.getElementById('id_password2').value;
+
+            if (password1 !== password2) {
+                event.preventDefault();
+                alert('Пароли не совпадают!');
+            }
+        });
+    </script>
+</body>
+
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+</html>

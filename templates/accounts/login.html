@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход — EcoPoints</title>
+</head>
+<body>
+    <h1>Вход в EcoPoints</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Войти</button>
+        <p>
+    <a href="{% url 'forgot_password' %}">Забыли пароль?</a>
+</p>
+    </form>
+
+    <p>Нет аккаунта?
+        <a href="{% url 'register' %}">Зарегистрироваться</a>
+    </p>
+</body>
+
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+</html>

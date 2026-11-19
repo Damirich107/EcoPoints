@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о сдаче — EcoPoints</title>
+</head>
+<body>
+    <h1>Информация о сдаче вторсырья</h1>
+
+    <p>Номер записи: {{ submission.id }}</p>
+    <p>Пункт приёма: {{ submission.point.name }}</p>
+    <p>Вид вторсырья: {{ submission.waste_type.name }}</p>
+    <p>Количество: {{ submission.quantity_kg }} кг</p>
+    <p>Статус: {{ submission.status }}</p>
+    <p>Дата сдачи: {{ submission.submitted_at }}</p>
+
+    <p><a href="/">Вернуться на главную</a></p>
+</body>
+</html>

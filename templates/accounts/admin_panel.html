@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель администратора — EcoPoints</title>
+</head>
+<body>
+    <h1>Панель администратора EcoPoints</h1>
+
+    <p>Добро пожаловать, администратор!</p>
+
+    <p>Имя пользователя: {{ request.user.username }}</p>
+
+    <p>
+        <a href="{% url 'profile' %}">Вернуться в профиль</a>
+    </p>
+
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+</body>
+
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+</html>
